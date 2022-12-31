@@ -1,9 +1,11 @@
 from django.db import models
 import datetime
+from vendedores.models import Vendedor
 # Create your models here.
 
 class Car(models.Model):
-    brand = models.CharField(max_length=100)
+    vendedor = models.ForeignKey(Vendedor,on_delete=models.DO_NOTHING)
+    marca = models.CharField(max_length=100)
     CATEGORIA = (("Novo","Novo")
                 ("Usado","Usado"))
     categoria= models.CharField(max_length=50, choices=CATEGORia)
@@ -16,7 +18,7 @@ class Car(models.Model):
 
     milhagem= models.IntegerField(blank=true, null=True)
     TRANSMISSAO=(
-        ('Manual','Manual')
+        ('Manual','Manual') #erro?
         ('Automatica','Automatica')
     )
     transmissao = models.CharField(max_length=50,choices=TRANSMISSAO)
@@ -29,4 +31,4 @@ class Car(models.Model):
     date = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.brand
+        return self.marca
