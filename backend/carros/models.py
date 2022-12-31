@@ -17,11 +17,11 @@ class Car(models.Model):
     image5 = models.ImageField(upload_to='images', blank=True)
 
     milhagem= models.IntegerField(blank=true, null=True)
-    TRANSMISSAO=(
+    CAMBio=(
         ('Manual','Manual'),
         ('Automatica','Automatica')
     )
-    transmissao = models.CharField(max_length=50,choices=TRANSMISSAO)
+    CAMBIO = models.CharField(max_length=50,choices=CAMBIO)
     ANO_ESCOLHAS = [(r,r) for r in range(2005,datetime.date.today().year+1)]
     ano = models.IntegerField(('year'),choices=YEAR_CHOICES,default=datetime.now().year)
     forca= models.IntegerField()
