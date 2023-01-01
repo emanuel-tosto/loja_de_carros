@@ -25,10 +25,20 @@ def filter_results(request):
     all = Carro.objects.all()
     myFilter = CarroFilter(request.GET,queryset=all)
     all = myFilter.qs
+    page = request.GET.get('page')
+    paginator = Paginator(all,1)
+    try:
+        all=paginator.page(page)
+    except PageNotAnInteger:
+        all = paginator.page('1')
+    except EmptyPage:
+        all = paginator.page(paginator.num_pages)
+    page_obj=paginator.get_page(page)
 
     context={
         'all':all,
         'myFilter':myFilter
+        'page_obj':page_obj
     }
 
     return render(request, 'filter_results.html',context)
