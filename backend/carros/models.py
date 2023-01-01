@@ -17,7 +17,7 @@ class Car(models.Model):
     image5 = models.ImageField(upload_to='images', blank=True)
 
     milhagem= models.IntegerField(blank=true, null=True)
-    CAMBio=(
+    CAMBIO=(
         ('Manual','Manual'),
         ('Automatica','Automatica')
     )
