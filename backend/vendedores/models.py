@@ -1,4 +1,4 @@
-'''from django.db import models
+from django.db import models
 
 # Create your models here.
 class Vendedor(models.Model):
@@ -9,4 +9,3 @@ class Vendedor(models.Model):
 
     def __str__(self):
         return self.name
-'''

@@ -22,6 +22,8 @@ from carros import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('',views.index,name='index')
+    path('about',views.about,name="about")
+    path('filter_results',views.filter_results,name="filter_results")
 ]
 
 urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

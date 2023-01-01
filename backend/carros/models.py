@@ -1,9 +1,9 @@
-'''from django.db import models
+from django.db import models
 import datetime
 from vendedores.models import Vendedor
 # Create your models here.
 
-class Car(models.Model):
+class Carro(models.Model):
     vendedor = models.ForeignKey(Vendedor,on_delete=models.DO_NOTHING)
     marca = models.CharField(max_length=100)
     CATEGORIA = (("Novo","Novo"),
@@ -19,7 +19,7 @@ class Car(models.Model):
     milhagem= models.IntegerField(blank=True, null=True)
     CAMBIO=(
         ('Manual','Manual'),
-        ('Automatica','Automatica')
+        ('Automatico','Automatico')
     )
     CAMBIO = models.CharField(max_length=50,choices=CAMBIO)
     ANO_ESCOLHAS = [(r,r) for r in range(2005,datetime.date.today().year+1)]
@@ -28,8 +28,7 @@ class Car(models.Model):
     combustivel=models.IntegerField()
     preco = models.IntegerField()
     descricao = models.TextField()
-    data = models.DateField(auto_now_add=True)
+    data = models.DateField()
 
     def __str__(self):
         return self.marca
-        '''
