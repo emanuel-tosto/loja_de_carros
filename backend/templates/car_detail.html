@@ -2,44 +2,44 @@
 
 {% block content %}
 <div class="container">
-<br>Dealer: {{ cars.dealer.name }}
-<br>Dealers mail: {{ cars.dealer.email }}
-<br>Brand: {{ cars.brand }}
-<br>Category: {{cars.category}}
+<br>Dealer: {{ carros.vendedor.nome }}
+<br>Dealers mail: {{ carros.vendedor.email }}
+<br>Brand: {{ carros.marca }}
+<br>Category: {{carros.categoria}}
 
-<br>Miles: {{ cars.miles }}
-<br>Transmission: {{ cars.transmission }}
-<br>Year: {{cars.year}}
-<br> Power: {{ cars.power }} hp
-<br> Fuel: {{cars.fuel }} l
-<h4>Price:{{cars.price}} $</h4>
+<br>Miles: {{ carros.milhagem }}
+<br>Transmission: {{ carros.cambio }}
+<br>Year: {{carros.ano}}
+<br> Power: {{ carros.forca }} hp
+<br> Fuel: {{carros.combustivel }} l
+<h4>Price:{{carros.preco}} $</h4>
 
-<br>{{ cars.description }}
+<br>{{ carros.descricao }}
 <br><br>
 <div class="row">
-  {% if cars.image1 %}
+  {% if carros.image1 %}
   <div class="col-md-3">
-    <img src="{{ cars.image1.url }}" width="200px" height="150px" alt="">
+    <img src="{{ carros.image1.url }}" width="200px" height="150px" alt="">
   </div>
   {% endif %}
-  {% if cars.image2 %}
+  {% if carros.image2 %}
   <div class="col-md-3">
-    <img src="{{ cars.image2.url }}" width="200px" height="150px" alt="">
+    <img src="{{ carros.image2.url }}" width="200px" height="150px" alt="">
   </div>
   {% endif %}
-  {% if cars.image3 %}
+  {% if carros.image3 %}
   <div class="col-md-3">
-    <img src="{{ cars.image3.url }}" width="200px" height="150px" alt="">
+    <img src="{{ carros.image3.url }}" width="200px" height="150px" alt="">
   </div>
   {% endif %}
-  {% if cars.image4 %}
+  {% if carros.image4 %}
   <div class="col-md-3">
-    <img src="{{ cars.image4.url }}" width="200px" height="150px" alt="">
+    <img src="{{ carros.image4.url }}" width="200px" height="150px" alt="">
   </div>
   {% endif %}
-  {% if cars.image5 %}
+  {% if carros.image5 %}
   <div class="col-md-3">
-    <img src="{{ cars.image5.url }}" width="200px" height="150px" alt="">
+    <img src="{{ carros.image5.url }}" width="200px" height="150px" alt="">
   </div>
   {% endif %}
 </div>
