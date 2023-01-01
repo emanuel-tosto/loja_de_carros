@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Carro
 from .filters import CarroFilter
 # Create your views here.
@@ -31,3 +31,10 @@ def filter_results(request):
     }
 
     return render(request, 'filter_results.html',context)
+
+def carro_detail(request,carro_id):
+    carros = get_object_or_404(Carro, id=carro_id)
+    context={
+        'carros': carros
+        }    
+    return render(request,'car_detail.html',context)

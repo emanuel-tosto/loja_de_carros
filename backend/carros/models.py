@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from vendedores.models import Vendedor
+from django.urls import reverse
 # Create your models here.
 
 class Carro(models.Model):
@@ -32,3 +33,8 @@ class Carro(models.Model):
 
     def __str__(self):
         return self.marca
+
+    def get_absolute_url(self):
+        return reverse('carro_detail',kwargs={
+            'carro_id':self.id
+        })
