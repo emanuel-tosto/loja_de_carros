@@ -33,11 +33,12 @@ def filter_results(request):
         all = paginator.page('1')
     except EmptyPage:
         all = paginator.page(paginator.num_pages)
+    
     page_obj=paginator.get_page(page)
 
     context={
         'all':all,
-        'myFilter':myFilter
+        'myFilter':myFilter,
         'page_obj':page_obj
     }
 
