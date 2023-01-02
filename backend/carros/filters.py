@@ -1,5 +1,5 @@
 import django_filters
-from .models import Carros
+from .models import Carro
 
 class CarroFilter(django_filters.FilterSet):
     marca=django_filters.CharFilter(lookup_expr='icontains')

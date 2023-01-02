@@ -21,11 +21,11 @@ from django.conf import settings
 from carros import views
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('',views.index,name='index')
-    path('about',views.about,name="about")
-    path('inventory',views.inventory,name="inventory")
-    path('vendedores',views.vendedores,name="vendedores")
-    path('<int:carro_id>',views.carro_detail,name="carro_detail")
+    path('',views.index,name='index'),
+    path('about',views.about,name="about"),
+    path('inventory',views.inventory,name="inventory"),
+    path('vendedores',views.vendedores,name="vendedores"),
+    path('<int:carro_id>',views.carro_detail,name="carro_detail"),
     path('filter_results',views.filter_results,name="filter_results")
 ]
 
