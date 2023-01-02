@@ -66,7 +66,7 @@ def inventory(request):
     render (request,'inventory.html',context)
 
 def vendedores(request):
-    all_vendedores = Vendedor.object.all()
+    all_vendedores = Vendedor.objects.all()
     context = {
         'all_vendedores':all_vendedores
     }
