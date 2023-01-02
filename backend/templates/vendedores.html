@@ -7,15 +7,15 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="section-title" style="text-align:center; color:#333333; margin-bottom:45px;">
-          <h2 style="margin-bottom:5px; text-transform:uppercase !important;">Meet Our Team</h2>
+          <h2 style="margin-bottom:5px; text-transform:uppercase !important;">Conheça nosso time</h2>
           <p>Goodness far this grimaced more domestically overrode bawled one much hello macaw spurious.</p>
         </div>
       </div>
-      {% for dealer in all_dealers %}
+      {% for dealer in all_vendedores %}
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="cs-team">
           <div class="cs-media">
-            <figure><a href="#"><img src="{{ dealer.picture.url }}" alt="" /></a></figure>
+            <figure><a href="#"><img src="{{ dealer.foto.url }}" alt="" /></a></figure>
             <div class="cs-caption"> 
               <ul>
                 <li><a href="#"><i class="icon-facebook2"></i></a></li>
@@ -27,8 +27,8 @@
             </div>
           </div>
           <div class="cs-text">
-            <h6><a href="#">{{ dealer.name }}</a></h6>
-            <span>{{ dealer.description }} </span> <em>{{ dealer.email }}</em> </div>
+            <h6><a href="#">{{ dealer.nome }}</a></h6>
+            <span>{{ dealer.descricao }} </span> <em>{{ dealer.email }}</em> </div>
         </div>
       </div>
       {% endfor %}

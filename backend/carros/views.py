@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404
 from .models import Carro
 from .filters import CarroFilter
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
+from vendedores.models import Vendedor
 # Create your views here.
 
 def index(request):
@@ -50,3 +51,21 @@ def carro_detail(request,carro_id):
         'carros': carros
         }    
     return render(request,'car_detail.html',context)
+
+
+def inventory(request):
+    inventory_cars = Carro.objects.all()
+    context = {
+        'inventory_cars': inventory_cars,
+        'page_obj':page_obj
+    }
+
+    render (request,'inventory.html',context)
+
+def vendedores(request):
+    all_vendedores = Vendedor.object.all()
+    context = {
+        'all_vendedores':all_vendedores
+    }
+
+    return render(request,'vendedores.html',context)

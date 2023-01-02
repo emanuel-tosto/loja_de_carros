@@ -2,7 +2,7 @@
 
 {% block content %}
 <br><br>
-<h3>Our inventory</h3>
+<h3>Nosso Inventário</h3>
 <br>
 <div class="row">
   {% for car in inventory_cars %}
@@ -12,15 +12,15 @@
         <figure> <img src="{{car.image_main.url }}" alt="#"/>
         </figure>
       </div>
-      <div class="auto-text"> <span class="cs-categories"><a href="#">{{ car.category }}</a></span>
+      <div class="auto-text"> <span class="cs-categories"><a href="#">{{ car.categoria }}</a></span>
         <div class="post-title">
-          <h6><a href="#">{{ car.brand }} </a></h6>
-          <div class="auto-price"><span class="cs-color">{{ car.price }} $</span></div>
+          <h6><a href="#">{{ car.marca }} </a></h6>
+          <div class="auto-price"><span class="cs-color">{{ car.preco }} $</span></div>
         </div>
-        <i class="icon-car228 cs-color" style="font-size:20px"> </i>{{ car.transmission }}
-        <br>Year: {{ car.year }}
+        <i class="icon-car228 cs-color" style="font-size:20px"> </i>{{ car.cambio }}
+        <br>Year: {{ car.ano }}
 
-        <a href="{{ car.get_absolute_url }}" class="View-btn">View Detail<i class=" icon-arrow-long-right"></i></a> </div>
+        <a href="{{ car.get_absolute_url }}" class="View-btn">Ver Detalhes<i class=" icon-arrow-long-right"></i></a> </div>
     </div>
   </div>
   {% endfor %}
