@@ -25,6 +25,7 @@ urlpatterns = [
     path('about',views.about,name="about"),
     path('inventory',views.inventory,name="inventory"),
     path('vendedores',views.vendedores,name="vendedores"),
+    path('contact',views.contact,name="contact"),
     path('<int:carro_id>',views.carro_detail,name="carro_detail"),
     path('filter_results',views.filter_results,name="filter_results")
 ]

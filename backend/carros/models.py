@@ -22,7 +22,7 @@ class Carro(models.Model):
         ('Manual','Manual'),
         ('Automatico','Automatico')
     )
-    CAMBIO = models.CharField(max_length=50,choices=CAMBIO)
+    cambio = models.CharField(max_length=50,choices=CAMBIO)
     ANO_ESCOLHAS = [(r,r) for r in range(2005,datetime.date.today().year+1)]
     ano = models.IntegerField(('year'),choices=ANO_ESCOLHAS,default=datetime.datetime.now().year)
     forca= models.IntegerField()

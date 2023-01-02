@@ -6,9 +6,9 @@ from vendedores.models import Vendedor
 # Create your views here.
 
 def index(request):
-    novos_carros = Carro.objects.filter(categoria="Novo")[:6]
+    carros_novos = Carro.objects.filter(categoria="Novo")[:6]
     carros_usados = Carro.objects.filter(categoria="Usado")[:6]
-    ultimos_carros =Carro.objects.all().order_by('-date')[:5]
+    ultimos_carros =Carro.objects.all().order_by('-data')[:5]
     all = Carro.objects.all()
     myFilter = CarroFilter(request.GET,queryset=all)
     all = myFilter.qs
@@ -21,6 +21,9 @@ def index(request):
     }
 
     return render(request, 'index.html',context)
+
+def about(request):
+    return render(request,'about.html')
 
 def filter_results(request):
     all = Carro.objects.all()
@@ -69,3 +72,6 @@ def vendedores(request):
     }
 
     return render(request,'vendedores.html',context)
+
+def contact(request):
+    return render(request,'contact.html',context)
