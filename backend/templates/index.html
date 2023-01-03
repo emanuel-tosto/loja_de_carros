@@ -32,7 +32,7 @@
 							<div class="main-search">
 								<form method="get" action="{% url 'filter_results' %}">
 									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-								<p>Marca:</p>
+								<p>Marca/Modelo:</p>
 									{{ myFilter.form.marca }}
 									</div>
 									<div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
@@ -40,19 +40,19 @@
 									{{ myFilter.form.categoria }}
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-								<p>Ano, mais de:</p>
+								<p>Ano, mais que:</p>
 									{{ myFilter.form.ano_gt }}
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-								<p>Ano, menos de:</p>
+								<p>Ano, menos que:</p>
 									{{ myFilter.form.ano_lt }}
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-								<p>Preço, mais de:</p>
+								<p>Preço maior que:</p>
 									{{ myFilter.form.preco_gt }}
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-								<p>Preço, menos de:</p>
+								<p>Preço menor que:</p>
 									{{ myFilter.form.preco_lt }}
 									</div>
 									<div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
@@ -63,7 +63,7 @@
 
 
 	<br>
-			<button class="btn btn-dark" type="submit">Buscar</button>
+			<button class="btn btn-dark" type="submit">Search</button>
 								</form>
 							</div>
 							<!--Element Section End-->
@@ -120,22 +120,22 @@
 									<div class="tab-content">
 										<div id="home" class="tab-pane fade in active">
 											<div class="row">
-												{% for car in new_cars %}
+												{% for car in carros_novos %}
 												<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 													<div class="auto-listing auto-grid">
 														<div class="cs-media">
 															<figure> <img src="{{car.image_main.url }}" alt="#"/>
 															</figure>
 														</div>
-														<div class="auto-text"> <span class="cs-categories"><a href="#">{{ car.category }}</a></span>
+														<div class="auto-text"> <span class="cs-categories"><a href="#">{{ car.categoria }}</a></span>
 															<div class="post-title">
 																<h6><a href="#">{{ car.marca }} </a></h6>
-																<div class="auto-price"><span class="cs-color">{{ car.price }} $</span></div>
+																<div class="auto-price"><span class="cs-color">{{ car.preco }} $</span></div>
 															</div>
-															<i class="icon-car228 cs-color" style="font-size:20px"> </i>{{ car.transmission }}
+															<i class="icon-car228 cs-color" style="font-size:20px"> </i>{{ car.cambio }}
 															<br>Year: {{ car.ano }}
 
-															<a href="{{ car.get_absolute_url }}" class="View-btn">View Detail<i class=" icon-arrow-long-right"></i></a> </div>
+															<a href="{{ car.get_absolute_url }}" class="View-btn">Ver Detalhes<i class=" icon-arrow-long-right"></i></a> </div>
 													</div>
 												</div>
 												{% endfor %}
@@ -143,22 +143,22 @@
 										</div>
 										<div id="menu1" class="tab-pane fade">
 											<div class="row">
-												{% for car in used_cars %}
+												{% for car in carros_usados %}
 												<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 													<div class="auto-listing auto-grid">
 														<div class="cs-media">
 															<figure> <img src="{{car.image_main.url }}" alt="#"/>
 															</figure>
 														</div>
-														<div class="auto-text"> <span class="cs-categories"><a href="#">{{ car.category }}</a></span>
+														<div class="auto-text"> <span class="cs-categories"><a href="#">{{ car.categoria }}</a></span>
 															<div class="post-title">
 																<h6><a href="#">{{ car.marca }} </a></h6>
-																<div class="auto-price"><span class="cs-color">{{ car.price }} $</span></div>
+																<div class="auto-price"><span class="cs-color">{{ car.preco }} $</span></div>
 															</div>
-															<i class="icon-car228 cs-color" style="font-size:20px"> </i>{{ car.transmission }}
+															<i class="icon-car228 cs-color" style="font-size:20px"> </i>{{ car.cambio }}
 															<br>Year: {{ car.ano }}
 
-															<a href="{{ car.get_absolute_url }}" class="View-btn">Ver detalhes<i class=" icon-arrow-long-right"></i></a> </div>
+															<a href="{{ car.get_absolute_url }}" class="View-btn">Ver Detalhes<i class=" icon-arrow-long-right"></i></a> </div>
 													</div>
 												</div>
 												{% endfor %}
@@ -187,7 +187,7 @@
 							<div class="cs-auto-listing cs-auto-box">
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<div class="cs-element-title">
-										<h2>Nossas mais novas aquisições</h2>
+										<h2>Nossos Últimos Carros</h2>
 									</div>
 								</div>
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -201,8 +201,8 @@
 
 											</div>
 											{{ car.marca }}
-											<br>Categoria:{{ car.categoria }}
-											<div class="auto-text cs-bgcolor"> <span>$ {{ car.preco }}</span><a href="{{ car.get_absolute_url }}" class="cs-button pull-right"><i class="icon-arrow_forward
+											<br>Category:{{ car.categoria }}
+											<div class="auto-text cs-bgcolor"> <span>R${{ car.preco }} </span><a href="{{ car.get_absolute_url }}" class="cs-button pull-right"><i class="icon-arrow_forward
 "></i></a> </div>
 										</li>
 										{% endfor %}
@@ -222,16 +222,16 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="section-title" style="text-align:center; color:#333333; margin-bottom:45px;">
-							<h3 style="margin-bottom:5px;">Porque nos escolher</h3>
-							<p>Vai lhe ajudar a achar o Toyota que está procurando na sua área.</p>
+							<h3 style="margin-bottom:5px;">WHY CHOOSE US</h3>
+							<p>It will help us find the Toyota you're looking for in your area.</p>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 						<div class="cs-services">
 							<div class="cs-media"> <i class="icon-fuel1 cs-color" style="font-size:70px;"> </i> </div>
 							<div class="cs-text">
-								<h6>TROCAS DE ÓLEO </h6>
-								
+								<h6>OIL CHANGES </h6>
+								<p>Vivamus erat diam, condimentum in aliquet sed, bibendum at quam. Phasellus lacus mauris.</p>
 							</div>
 						</div>
 					</div>
@@ -239,8 +239,8 @@
 						<div class="cs-services">
 							<div class="cs-media"> <i class="icon-car230 cs-color" style="font-size:40px"> </i> </div>
 							<div class="cs-text">
-								<h6>AR-CONDICIONADO</h6>
-								
+								<h6>AIR CONDITIONING</h6>
+								<p>Nulla a gravida purus. Fusce at interdum libero, at. Vivamus erat diam, condimentum in bibendum                                            at quam.</p>
 							</div>
 						</div>
 					</div>
@@ -248,8 +248,8 @@
 						<div class="cs-services">
 							<div class="cs-media"> <i class="icon-energy42 cs-color" style="font-size:40px"> </i> </div>
 							<div class="cs-text">
-								<h6>Bateria </h6>
-								
+								<h6>AUTO ELECTRIC </h6>
+								<p>Etiam et maximus nisi, nec scelerisque neque. Nunc euismod iaculis urna, id eleifend lorem                                             aliquet at. </p>
 							</div>
 						</div>
 					</div>
@@ -257,8 +257,8 @@
 						<div class="cs-services">
 							<div class="cs-media"> <i class="icon-car36 cs-color" style="font-size:40px"> </i> </div>
 							<div class="cs-text">
-								<h6>Serviço de Freio </h6>
-								
+								<h6>BRAKE SERVICE </h6>
+								<p>Vivamus erat diam, condimentum in aliquet sed, bibendum at quam. Phasellus lacus mauris.</p>
 							</div>
 						</div>
 					</div>
@@ -266,8 +266,8 @@
 						<div class="cs-services">
 							<div class="cs-media"> <i class="icon-car228 cs-color" style="font-size:40px"> </i> </div>
 							<div class="cs-text">
-								<h6>CÂMBIO</h6>
-								
+								<h6>TRANSMISSION</h6>
+								<p>Nulla a gravida purus. Fusce at interdum libero, at. Vivamus erat diam, condimentum in bibendum                                            at quam.</p>
 							</div>
 						</div>
 					</div>
@@ -275,8 +275,8 @@
 						<div class="cs-services">
 							<div class="cs-media"> <i class="icon-transport177 cs-color" style="font-size:40px"> </i> </div>
 							<div class="cs-text">
-								<h6>PNEUS & RODAS</h6>
-								
+								<h6>TIRE &amp; WHEEL SERVICE</h6>
+								<p>Etiam et maximus nisi, nec scelerisque neque. Nunc euismod iaculis urna, id eleifend lorem                                              aliquet at. </p>
 							</div>
 						</div>
 					</div>
